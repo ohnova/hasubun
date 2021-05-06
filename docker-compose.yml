@@ -1,15 +1,15 @@
 version: '3'
 services:
-  mongo:
-    image: mongo
-    restart: always
-    volumes:
-      - mongodb:/data/db
-    ports:
-      - '27017:27017'
-    command: --quiet
-  redis:
-    image: 'redis:latest'
+  # mongo:
+  #   image: mongo
+  #   restart: always
+  #   volumes:
+  #     - mongodb:/data/db
+  #   ports:
+  #     - '27017:27017'
+  #   command: --quiet
+  # redis:
+  #   image: 'redis:latest'
   nginx:
     depends_on:
       - api
@@ -31,7 +31,7 @@ services:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - UPBIT_OPEN_API_SERVER_URL=https://api.upbit.com
-      - MONGO_URI=mongodb://mongo:27017/cryptoDB
+      # - MONGO_URI=mongodb://mongo:27017/cryptoDB
       - JWT_SECRET=aslkjweoiuohjlskdajflkasjdflkjsdlkfjsldkjfa
   client:
     stdin_open: true
@@ -51,5 +51,5 @@ services:
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
-volumes:
-  mongodb:
+# volumes:
+#   mongodb:
