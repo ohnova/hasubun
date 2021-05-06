@@ -1,8 +1,12 @@
-sudo: required
+# sudo: required
 language: generic
 
 services:
   - docker
+
+dist: bionic
+
+os: linux
 
 before_install:
   - docker build -t ohnova/react-test -f ./client/Dockerfile.dev ./client
@@ -28,9 +32,11 @@ deploy:
   region: 'ap-northeast-2'
   app: 'hasubun'
   env: 'Hasubun-env'
-  bucket_name: 'elasticbeanstalk-ap-northeast-2-488989583329'
+  bucket: 'elasticbeanstalk-ap-northeast-2-488989583329'
+  # bucket_name: 'elasticbeanstalk-ap-northeast-2-488989583329'
   bucket_path: 'docker-multi'
-  # on:
+  on:
+    all_branches: true
   #   branch: master
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_KEY
