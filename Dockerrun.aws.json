@@ -6,14 +6,14 @@
       "image": "ohnova/multi-client-10-14",
       "hostname": "client",
       "essential": false,
-      "memory": 128
+      "memory": 256
     },
     {
       "name": "server",
       "image": "ohnova/multi-server-10-14",
       "hostname": "api",
       "essential": false,
-      "memory": 128
+      "memory": 256
     },
     {
       "name": "worker",
